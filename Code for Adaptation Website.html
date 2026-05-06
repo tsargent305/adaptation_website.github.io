@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miami Beach Transformative Adaptation</title>
+  <style>
+    :root {
+      --deep: #053f4f;
+      --navy: #064b5f;
+      --blue: #168aad;
+      --aqua: #76e4f7;
+      --seafoam: #b7f4df;
+      --mint: #dffbea;
+      --mangrove: #0b6e4f;
+      --green: #2dd4a3;
+      --sage: #e8f5e9;
+      --sand: #f6f0da;
+      --ink: #14333d;
+      --muted: #55727a;
+      --white: #ffffff;
+      --shadow: 0 18px 45px rgba(5, 63, 79, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #e6fbff 0%, #effcf4 42%, #dff7ef 100%);
+      line-height: 1.6;
+    }
+
+    a { color: var(--blue); text-decoration: none; font-weight: 700; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(7,59,76,0.12);
+    }
+
+    nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0.9rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+      font-size: 1.15rem;
+    }
+
+    .navlinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+    }
+
+    .navlinks a {
+      color: var(--navy);
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .navlinks a:hover { background: #e3f8ef; text-decoration: none; }
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 5rem 1.2rem 3rem;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(45,212,163,0.18);
+      color: var(--mangrove);
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5.3rem);
+      line-height: 0.92;
+      margin: 0 0 1.2rem;
+      color: var(--navy);
+      letter-spacing: -0.07em;
+    }
+
+    .hero p {
+      font-size: 1.18rem;
+      color: #29434e;
+      max-width: 650px;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    .button {
+      display: inline-block;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.85rem 1.1rem;
+      font-weight: 900;
+      box-shadow: 0 8px 20px rgba(7,59,76,0.15);
+      text-decoration: none;
+    }
+    .primary { background: linear-gradient(135deg, var(--blue), var(--mangrove)); color: white; }
+    .secondary { background: white; color: var(--navy); border: 1px solid rgba(7,59,76,0.16); }
+    .button:hover { transform: translateY(-1px); text-decoration: none; }
+
+    .hero-card {
+      background: white;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(7,59,76,0.12);
+    }
+
+    .photo {
+      min-height: 305px;
+      background:
+        linear-gradient(180deg, rgba(5,63,79,0.02) 0%, rgba(5,63,79,0.85) 100%),
+        radial-gradient(circle at 22% 52%, #76e4f7 0 8%, transparent 9%),
+        radial-gradient(circle at 72% 48%, #2dd4a3 0 10%, transparent 11%),
+        linear-gradient(0deg, #168aad 0 16%, transparent 17%),
+        linear-gradient(90deg, transparent 0 8%, #ffffff 8% 17%, transparent 17% 20%, #dffbea 20% 34%, transparent 34% 38%, #ffffff 38% 48%, transparent 48% 54%, #cdebf3 54% 70%, transparent 70%),
+        linear-gradient(180deg, #b7f4df 0%, #e6fbff 100%);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.2rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo::before {
+      content: 'Miami Beach';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      color: rgba(5,63,79,.18);
+      font-size: 3.6rem;
+      font-weight: 900;
+      letter-spacing: -.08em;
+    }
+
+    .photo span { font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,.35); position: relative; z-index: 2; }
+
+    .rendering {
+      min-height: 420px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rendering::before { content:none }
+    .rendering > * { position: relative; z-index: 1; }
+
+    .water-square-render {
+      background:
+        linear-gradient(0deg, rgba(22,138,173,.55) 0 24%, transparent 25%),
+        radial-gradient(circle at 28% 58%, #2dd4a3 0 8%, transparent 9%),
+        radial-gradient(circle at 76% 52%, #0b6e4f 0 7%, transparent 8%),
+        linear-gradient(90deg, transparent 0 10%, #ffffff 10% 22%, transparent 22% 27%, #dffbea 27% 41%, transparent 41% 48%, #ffffff 48% 60%, transparent 60%),
+        linear-gradient(180deg, #e6fbff 0%, #b7f4df 100%);
+    }
+
+    .flood-map-render {
+      background:
+        linear-gradient(0deg, rgba(22,138,173,.32) 0 22%, transparent 23%),
+        linear-gradient(90deg, transparent 0 7%, #ffffff 7% 18%, transparent 18% 24%, #dffbea 24% 37%, transparent 37% 45%, #ffffff 45% 57%, transparent 57% 64%, #cdebf3 64% 78%, transparent 78%),
+        radial-gradient(circle at 18% 42%, #2dd4a3 0 7%, transparent 8%),
+        radial-gradient(circle at 80% 50%, #76e4f7 0 9%, transparent 10%),
+        linear-gradient(180deg, #e6fbff 0%, #effcf4 100%);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .stat {
+      background: #effcf4;
+      border-radius: 20px;
+      padding: 0.9rem;
+      min-height: 115px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.45rem;
+      line-height: 1.05;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat small { color: var(--muted); font-weight: 700; }
+
+    section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 3.2rem 1.2rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      color: var(--navy);
+      margin: 0;
+      letter-spacing: -0.055em;
+    }
+
+    .section-head p { max-width: 520px; color: var(--muted); margin: 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    #education .card:nth-child(3) {
+      grid-column: span 2;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 1.2rem;
+      gap: 0;
+      background: #fff;
+      border-radius: 8px;
+    }
+
+    .card h3 { margin-top: 0; margin-bottom: 0.5rem; color: var(--navy); line-height: 1.1; font-size: 1.35rem; }
+    .card p { margin-top: 0; margin-bottom: 0; }
+    .card li { color: #304954; }
+    .tag {
+      display: inline-block;
+      background: #e3f8ef;
+      color: var(--navy);
+      padding: .25rem .55rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      font-weight: 800;
+      margin-bottom: .55rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .big-panel {
+      background: linear-gradient(135deg, var(--deep), var(--mangrove));
+      color: white;
+      border-radius: 34px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .big-panel h2, .big-panel h3 { color: white; }
+    .big-panel p { color: rgba(255,255,255,0.84); }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .8rem;
+      margin-top: 1rem;
+    }
+
+    .flow-step {
+      background: white;
+      color: var(--ink);
+      border-radius: 24px;
+      padding: 1.2rem;
+      min-height: 190px;
+      border: 1px solid rgba(255,255,255,.55);
+      box-shadow: 0 10px 24px rgba(5,63,79,.12);
+    }
+
+    .number {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: inline-grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--green), var(--aqua));
+      color: var(--deep);
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin-bottom: .75rem;
+      box-shadow: 0 8px 18px rgba(5,63,79,.16);
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .reactive { border-top: 8px solid #f77f00; }
+    .proactive { border-top: 8px solid var(--green); }
+
+    .map-card {
+      min-height: 420px;
+      background-image: url('images/Risk_map_mindset.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .pill-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+    .pill { background: white; border: 1px solid rgba(7,59,76,.12); padding: .45rem .7rem; border-radius: 999px; font-weight: 800; color: var(--navy); }
+
+    .image-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .image-tile {
+      min-height: 240px;
+      border-radius: 28px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+      color: white;
+      font-weight: 900;
+      text-shadow: 0 2px 10px rgba(0,0,0,.45);
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+    }
+
+    .page {
+      border-top: 1px solid rgba(7,59,76,.12);
+      scroll-margin-top: 80px;
+    }
+
+    .mini-link {
+      display: inline-block;
+      margin-top: .7rem;
+      font-weight: 900;
+    }
+
+    .callout {
+      background: linear-gradient(135deg, var(--seafoam), #e6fbff);
+      border-radius: 34px;
+      padding: 1.4rem;
+      border: 1px solid rgba(7,59,76,.12);
+    }
+
+    .word-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .word-card {
+      background: white;
+      border-radius: 32px;
+      padding: 1.5rem;
+      border: 1px solid rgba(7,59,76,0.12);
+      box-shadow: 0 12px 35px rgba(7,59,76,0.08);
+    }
+
+    .word-card h3 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--mangrove);
+      margin: 0 0 .8rem;
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    .system-panel .flow-step h3 { color: var(--deep); font-size: 1.25rem; }
+    .system-panel .prep-step h3 { color: var(--deep); }
+    .system-panel .prep-step p { color: var(--ink); }
+
+    .strategy-grid {
+      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .strategy-grid .image-card {
+      min-height: 420px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 18px;
+    }
+
+    .read-more {
+      margin-top: 1rem;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(7,59,76,.12);
+      border-radius: 18px;
+      padding: .85rem;
+      color: #304954;
+    }
+
+    .wide-card { grid-column: span 2; }
+
+    .image-card,
+    .image-banner,
+    .image-infra-green,
+    .image-infra-roof {
+      min-height: 240px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .image-card::after,
+    .image-banner::after,
+    .image-infra-green::after,
+    .image-infra-roof::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(5,63,79,.35));
+    }
+
+    .preparedness-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .prep-step {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 1rem;
+      align-items: start;
+      background: rgba(255,255,255,.96);
+      color: var(--ink);
+      border-radius: 26px;
+      padding: 1.25rem;
+      min-height: 190px;
+      box-shadow: 0 12px 28px rgba(5,63,79,.16);
+    }
+
+    .prep-number {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--green), var(--aqua));
+      color: var(--deep);
+      font-weight: 900;
+      font-size: 1.6rem;
+    }
+
+    .prep-step h3 { color: var(--deep); margin-top: 0; }
+    .prep-step p { margin-bottom: 0; }
+
+    .image-education {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(5,63,79,.55)),
+        radial-gradient(circle at 50% 45%, #76e4f7 0 20%, transparent 21%),
+        linear-gradient(90deg, transparent 0 18%, #ffffff 18% 34%, transparent 34% 40%, #dffbea 40% 62%, transparent 62%),
+        linear-gradient(180deg, #e6fbff, #b7f4df);
+    }
+
+    .image-community {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(5,63,79,.55)),
+        radial-gradient(circle at 28% 58%, #2dd4a3 0 10%, transparent 11%),
+        radial-gradient(circle at 58% 58%, #76e4f7 0 10%, transparent 11%),
+        radial-gradient(circle at 78% 58%, #0b6e4f 0 10%, transparent 11%),
+        linear-gradient(180deg, #e6fbff, #effcf4);
+    }
+
+    .image-infra-green {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(5,63,79,.42)),
+        radial-gradient(circle at 25% 62%, #2dd4a3 0 14%, transparent 15%),
+        radial-gradient(circle at 68% 55%, #0b6e4f 0 13%, transparent 14%),
+        linear-gradient(0deg, #168aad 0 14%, #dffbea 14% 38%, transparent 39%),
+        linear-gradient(180deg, #e6fbff, #b7f4df);
+    }
+
+    .image-infra-roof {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(5,63,79,.42)),
+        linear-gradient(135deg, transparent 0 38%, #0b6e4f 38% 50%, transparent 51%),
+        linear-gradient(45deg, transparent 0 42%, #2dd4a3 42% 52%, transparent 53%),
+        linear-gradient(90deg, transparent 0 12%, #ffffff 12% 30%, transparent 30% 38%, #dffbea 38% 57%, transparent 57%),
+        linear-gradient(180deg, #e6fbff, #effcf4);
+    }
+
+    a.read-more {
+      display: block;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    a.read-more:hover { transform: translateY(-1px); text-decoration: none; box-shadow: 0 8px 20px rgba(5,63,79,.14); }
+
+    .summary-pretty {
+      background:
+        radial-gradient(circle at top right, rgba(118,228,247,.45), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(45,212,163,.38), transparent 34%),
+        linear-gradient(135deg, #ffffff, #e6fbff 48%, #dffbea);
+      border: 1px solid rgba(7,59,76,.12);
+      border-radius: 40px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .summary-pretty h2 { font-size: clamp(2.2rem, 5vw, 4rem); margin: .3rem 0 .8rem; }
+    .summary-pretty p { font-size: 1.15rem; max-width: 820px; color: #304954; }
+
+    .summary-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin-top: 1rem;
+    }
+
+    .summary-mini-grid div {
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(7,59,76,.1);
+      border-radius: 22px;
+      padding: 1rem;
+    }
+
+    .summary-mini-grid strong { display: block; color: var(--mangrove); font-size: 1.25rem; margin-bottom: .35rem; }
+    .summary-mini-grid span { color: #304954; }
+
+    .image-water { background-image: url('images/Water_Square.png'); }
+    .image-green { background-image: url('images/Green_Spaces.png'); }
+    .image-roof  { background-image: url('images/Blue_Roofs.png'); }
+
+    .infra-stack { display: flex; flex-direction: column; gap: 3rem; margin-top: 2rem; }
+
+    .infra-block {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .infra-block.reverse { grid-template-columns: 1.4fr 1fr; }
+
+    .infra-text {
+      background: white;
+      border-radius: 24px;
+      padding: 1.6rem;
+      box-shadow: 0 14px 40px rgba(5,63,79,.12);
+    }
+
+    .infra-text h3 { margin-top: 0; font-size: 2rem; color: var(--mangrove); }
+    .infra-text p  { color: #304954; font-size: 1.05rem; }
+
+    .infra-image {
+      width: 100%;
+      height: 420px;
+      border-radius: 24px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .infra-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5,63,79,.05), rgba(5,63,79,.35));
+    }
+
+    .grid { align-items: stretch; }
+    .card { overflow: hidden; }
+
+    .content-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .card:has(.content-image) { padding: 0; min-height: 280px; display: flex; }
+    .card:has(.content-image) img { flex: 1; }
+    .grid { grid-auto-rows: 1fr; }
+
+    .small-image {
+      width: 95%;
+      max-width: 500px;
+      height: auto;
+      margin: 2.5rem auto 0;
+      display: block;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: clamp(300px, 22vw, 320px);
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── CLIMATE DRIVERS ── */
+    .climate-drivers {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-top: 2rem;
+    }
+
+    .cd-row {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      min-height: 110px;
+    }
+
+    .cd-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+
+    .cd-title h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.35;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .cd-detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(0,0,0,0.07);
+    }
+
+    .cd-detail p {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .cd-row-1 { background: #6aafd6; }
+    .cd-row-2 { background: #4e92c1; }
+    .cd-row-3 { background: #3d68b2; }
+    .cd-row-4 { background: #2e4e96; }
+
+    .cd-footer {
+      background: #ffffff;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--navy);
+      line-height: 1.6;
+      font-style: italic;
+      border-top: 1px solid rgba(7,59,76,0.10);
+    }
+ .cd-detail ul {
+  color: white;
+}
+
+.cd-detail li {
+  color: white;
+}
+
+    footer {
+      background: var(--deep);
+      color: white;
+      padding: 1.1rem 1.2rem;
+      margin-top: 2rem;
+    }
+    footer .inner { max-width: 1180px; margin: 0 auto; }
+    footer p { color: rgba(255,255,255,.78); max-width: 900px; margin: 0; }
+
+    @media (max-width: 900px) {
+      .hero, .split, .grid, .compare, .flow, .image-strip, .word-grid, .preparedness-grid, .summary-mini-grid { grid-template-columns: 1fr; }
+      .wide-card { grid-column: span 1; }
+      .prep-step { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+      nav { align-items: flex-start; flex-direction: column; }
+      .cd-row { grid-template-columns: 1fr; }
+      .cd-title { padding: 1rem; }
+      .infra-block, .infra-block.reverse { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="logo" href="#top">Miami Beach Transformational Adaptation</a>
+      <div class="navlinks">
+        <a href="#mindset">Risk Assessment</a>
+        <a href="#education">Education</a>
+        <a href="#adaptation">Infrastructure</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <h1>A strategy to transform climate risk in Miami Beach</h1>
+        <p>
+           Miami Beach is a vulnerable, low-lying residential and tourist destination on the frontlines of climate risk. Yet the biggest challenge isn't just water, but how the city responds to it. As flooding, extreme rainfall, and sea level rise intensify, this project explores how residents can move from awareness to action. It is grounded in transformational adaptation, using education as an empowering tool to shift the community from ignoring risk to engaging with site-based strategies that rethink how water is managed and how climate change is understood and lived.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="#mindset">Risk assessment</a>
+          <a class="button primary" href="#education">Education</a>
+          <a class="button primary" href="#adaptation">Infrastructure</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img class="hero-image" src="images/Cover_photo.png" alt="Miami Beach coastal flooding">
+        <div class="stats">
+          <div class="stat"><strong>~4.4 ft</strong><small>Low elevation means small changes in water matter, and flood risk varies across neighborhoods.</small></div>
+          <div class="stat"><strong>Compound risk</strong><small>Flooding in Miami Beach emerges from how water systems and coastal conditions interact.</small></div>
+          <div class="stat"><strong>Uneven impacts</strong><small>These risks can influence members of the community in different ways, from renters, to homeowners, to businesses.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RISK SECTION -->
+    <section id="risk" class="page">
+      <div class="section-head">
+        <h2>Risk is increasing in Miami Beach</h2>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Low elevation raises exposure</h3>
+          <p>Globally, sea levels are rising as the average temperature is rising. This is primarily due to thermal expansion of ocean water and melting land ice. As a low-lying coastal city, Miami is vulnerable to the effects of sea level rise <a href="https://www.miami.gov/My-Government/Climate-Change-in-the-City-of-Miami" target="_blank">(Miami.gov).</a></p>
+        </article>
+        <article class="card">
+          <img class="content-image" src="images/Low_Elevation.png" alt="Miami Beach elevation risk">
+        </article>
+        <article class="card">
+          <h3>Storm risk</h3>
+          <p>Miami has long been one of the most vulnerable cities in the U.S. to hurricanes due to its subtropical climate and coastal location in the Atlantic basin. Over time, Miamians may see increased frequency/instances of Category 4 and 5 storms <a href="https://www.aoml.noaa.gov/hrd-faq/#tropical-cyclone-climatology" target="_blank">(NOAA AOML).</a></p>
+        </article>
+        <article class="card">
+          <img class="content-image" src="images/Stormwater_Indundation.png" alt="Hurricane storm risk visualization">
+        </article>
+        <article class="card wide-card">
+          <h3>Why is adapting in preparation for climate change important?</h3>
+          <p>Investing in climate adaptation can help cities reduce or avoid future losses, bring social and environmental benefits, and produce positive economic outcomes via innovation, increased productivity, and risk reduction <a href="https://www.miami.gov/My-Government/Climate-Change-in-the-City-of-Miami" target="_blank">(Miami.gov).</a></p>
+        </article>
+      </div>
+
+      <!-- ── CLIMATE DRIVERS INFOGRAPHIC ── -->
+
+      
+  <div class="climate-drivers">
+        <div class="cd-row cd-row-1">
+          <div class="cd-title"><h3>Warmer Atmosphere,<br>More Moisture</h3></div>
+          <div class="cd-detail">
+            <ul>
+              <li>The Clausius-Clapeyron relationship indicates ~7% more atmospheric water vapor per °C of warming.</li>
+              <li>This leads to higher rainfall intensity during storm events.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cd-row cd-row-2">
+          <div class="cd-title"><h3>Cool Air Condenses<br>Water Vapor</h3></div>
+          <div class="cd-detail">
+            <ul>
+              <li>South Florida sits between the Gulf of Mexico and Atlantic moisture sources.</li>
+              <li>Frontal boundaries interacting with tropical moisture can produce extreme rainfall.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cd-row cd-row-3">
+          <div class="cd-title"><h3>Slow Moving<br>Stationary Systems</h3></div>
+          <div class="cd-detail">
+            <ul>
+              <li>Weak steering winds can cause storms to stall over the same area.</li>
+              <li>Prolonged rainfall accumulation — think: April 2023 Fort Lauderdale flash flood.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cd-row cd-row-4">
+          <div class="cd-title"><h3>Climate Variability<br>&amp; Rainfall Risk</h3></div>
+          <div class="cd-detail">
+            <ul>
+              <li>Large-scale climate patterns (ENSO, MJO) help determine when South Florida gets heavy rain.</li>
+              <li>These patterns can increase moisture and cause storms to linger.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cd-footer">
+          These climate drivers increase the likelihood of intense rainfall that exceeds drainage capacity.
+          Water squares offer an innovative solution to reduce flood risk.
+        </div>
+      </div>
+
+      <!-- ── END CLIMATE DRIVERS ── -->
+
+    </section>
+
+    <!-- MINDSET SECTION -->
+    <section id="mindset" class="page">
+      <div class="section-head">
+        <h2>How risk assessment should feel</h2>
+      </div>
+      <div class="word-grid">
+        <article class="word-card">
+          <h3>Consequentiality</h3>
+          <p>By providing specific risk predictions, consequences also arise. Risk predictions shape investments, rebuilding decisions, insurance conversations, emergency staging, and public communication. Maps that predict risk need to be made with usefulness in mind, as these maps will have a large impact on future decisions within the community.</p>
+        </article>
+        <article class="word-card">
+          <h3>Appropriateness</h3>
+          <p>The response the city of Miami Beach has should match the climate risk researchers expect. The main idea of this goal is to not overestimate or underestimate risk, but to have an adequate idea of what to expect of the future. By assessing probability, exposure, and potential impact, Miami Beach can prepare in a way that feels purposeful and useful to residents.</p>
+        </article>
+        <article class="word-card">
+          <h3>Meaningfulness</h3>
+          <p>Risk should be accessible and understandable for all residents. Residents specifically care about how this risk impacts them at a local level. Having accessible information on specific streets and locations can help residents understand what choices are available to them before catastrophe hits.</p>
+        </article>
+      </div>
+      <img class="content-image" src="images/Collaboration.png" alt="Hurricane storm risk visualization">
+    </section>
+
+    <!-- 3-PART PLAN SECTION -->
+    <section id="plan" class="page">
+      <div class="split">
+        <div class="big-panel">
+          <h2>A 3-part transformation plan</h2>
+          <p><strong>1. Preparedness:</strong></p>
+          <ul>
+            <li>Use up-to-date flood maps, climate models, and neighborhood observations to intentionally plan and understand risk more accurately.</li>
+            <li>Harness evolving climate science to inform real-time planning and response decisions.</li>
+          </ul>
+          <p><strong>2. Education + action:</strong></p>
+          <ul>
+            <li>Create immersive, hands-on experiences that help residents understand what risk means for their homes, streets, and neighborhoods.</li>
+            <li>Combine storytelling, real-time observation, and interactive tools so residents can safely experience future climate scenarios, build awareness, and take ownership of how they prepare.</li>
+          </ul>
+          <p><strong>3. Infrastructure strategies:</strong></p>
+          <ul>
+            <li>Build systems that can hold, slow, redirect, and live with water.</li>
+            <li>Includes water squares, green spaces, collection sites, and roof-based storage.</li>
+          </ul>
+        </div>
+        <div class="card map-card rendering flood-map-render"></div>
+      </div>
+    </section>
+
+    <!-- PREPAREDNESS SECTION -->
+    <section id="system" class="page">
+      <div class="big-panel system-panel">
+        <h2>Preparedness</h2>
+        <p>We aim to replace Miami Beach's current reactive response system with a prepared system that integrates the most up-to-date climate information with a clear action plan.</p>
+        <div class="preparedness-grid">
+          <div class="prep-step"><div class="prep-number">1</div><div><h3>Assess climate risk</h3><p>Using updated climate modeling and regional projections, we can better quantify climate change risks in Miami Beach. Focusing on forward thinking climate forecasts instead of basing risk solely on historical data can reduce risk and exposure.</p></div></div>
+          <div class="prep-step"><div class="prep-number">2</div><div><h3>Define thresholds of risk</h3><p>Most of Miami Beach is particularly vulnerable to multiple hazards. If a specific area has a high rainfall probability as well as elevated tide levels, flood risk is expanded beyond normal thresholds. Incorporating multiple types of risk into adaptation planning can ensure in-depth preparedness for climate change.</p></div></div>
+          <div class="prep-step"><div class="prep-number">3</div><div><h3>Prepare for action</h3><p>Proactively create plans, inform residents, and allocate specific resources to vulnerable areas on a hyper-local neighborhood scale before climate events happen.</p></div></div>
+          <div class="prep-step"><div class="prep-number">4</div><div><h3>Learn and update</h3><p>After each event, compare forecasts, observations, and observed flooding to ensure action aligns with anticipated risk.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="page">
+      <div class="section-head">
+        <h2>Education + action</h2>
+        <p>Public education should not only inform people about climate risk. It should ground people as active participants in their future, building ownership and autonomy while allowing them to safely and visually practice how to respond to risk.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Immersive climate experiences</h3>
+          <p>Instead of only seeing flood maps, residents could step into future scenarios. Using AI immersive technology, people can safely experience how extreme rainfall, tides, and groundwater rise might affect their own block. These spaces could also show what transformation looks like: how water is stored, redirected and lived with.</p>
+        </article>
+        <img class="content-image" src="images/Education_Action.png" alt="Hurricane storm risk visualization">
+        <article class="card">
+          <h3>Art, storytelling &amp; citizen science</h3>
+          <p>Public art becomes a way to reframe Miami Beach's relationship with water. The goal is to give residents ownership over how climate resilience is understood and talked about in their own neighborhoods. Storytelling can take many forms: community murals that map past and future flood lines, photo and audio projects capturing lived experiences with high tides, or neighborhood exhibits that visualize future climate scenarios. Working with local businesses such as 'O, Miami,' the city could help bring creative initiatives like zipcode-based storytelling to life, building hyper-local narratives about climate and place across Miami Beach.</p>
+          <p>Residents can engage in citizen science projects, turning everyday observations into shared knowledge about future risk and transformation. Residents document experiences with water inundation in real time, contributing to a living dataset while building awareness of what's happening on the ground. The aim is to connect what people see on the ground to action, creating a two-way exchange where resident observations directly inform city understanding and response.</p>
+        </article>
+        <article class="card">
+          <h3>Climate block parties + resource hubs</h3>
+          <p>Shift from a traditional resource fair to something that feels like Miami: a neighborhood block party with local food vendors and music. Streets or parks become spaces where residents can explore flood barriers, talk with city staff, learn about insurance and elevation options, and see live demonstrations of adaptation strategies. Residents can learn about how to protect their home, what to do before a storm, and what current adaptation strategies are in place.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- INFRASTRUCTURE SECTION -->
+    <section id="adaptation" class="page">
+      <div class="section-head">
+        <h2>Infrastructure strategies</h2>
+        <p>By treating water as something to work with, and not against, we can integrate flexible systems that can store, manage, and reduce flood risk over time.</p>
+      </div>
+      <div class="infra-stack">
+        <article class="infra-block">
+          <div class="infra-text">
+            <h3>Water squares</h3>
+            <p>A water square in Miami Beach could act as an everyday public space, such as a plaza or event area when it is dry, but temporarily store stormwater during intense rainfall events. In a city where short, high-intensity storms can overwhelm drainage systems, these spaces provide visible, local storage that reduces street flooding while keeping public space active and usable. A pilot site, such as Collins Park, could demonstrate how Miami Beach can serve as the first multi-functional public space designed to operate in both dry and wet conditions.</p>
+          </div>
+          <div class="infra-image image-water"></div>
+        </article>
+        <article class="infra-block reverse">
+          <div class="infra-text">
+            <h3>Green spaces</h3>
+            <p>Parks in Miami Beach already play a role in flood management, and this approach can be expanded. Features like bioswales, rain gardens, and permeable surfaces help slow and store water before it reaches streets and storm drains. Projects like Bayshore Park and Canopy Park already show how green spaces can double as infrastructure, reducing flood risk while beautifying the city and creating space for the community to gather.</p>
+          </div>
+          <div class="infra-image image-green"></div>
+        </article>
+        <article class="infra-block">
+          <div class="infra-text">
+            <h3>Blue roofs</h3>
+            <p>Rooftops can be designed to actively manage water instead of immediately sending it into the drainage system. By retrofitting buildings with blue roof systems, rainwater can be temporarily held during intense storms and released slowly after peak rainfall has passed, reducing the surge that overwhelms streets and storm drains. Stored water can also be reused for building cooling or plumbing, helping reduce demand on water resources. When applied across many buildings, blue roofs create a distributed system that delays and spreads out runoff over time, using existing space to support Miami Beach's drainage system in a practical and scalable way.</p>
+          </div>
+          <div class="infra-image image-roof"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SUMMARY SECTION -->
+    <section id="summary" class="page">
+      <div class="summary-pretty">
+        <div class="section-head">
+          <h2 class="quote">"The future will not be like the past, and our systems must be designed for what's coming, not what we've already seen."</h2>
+        </div>
+        <p>Transformational adaptation means Miami Beach plans for events before they happen, using forecasts and risk signals to prepare spaces for water, not just reacting after flooding occurs. This strategy connects three pieces: better risk assessment, public education, and infrastructure that makes room for water.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="inner">
+      <p>Miami Beach Transformative Adaptation - Made by Abby McDonnell and Tori Sargent</p>
+    </div>
+  </footer>
+</body>
+</html>
